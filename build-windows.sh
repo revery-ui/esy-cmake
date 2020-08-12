@@ -1,3 +1,5 @@
+set -x
+
 if cmake.exe --version; then
     echo "cmake already in path..."
 else
@@ -20,4 +22,11 @@ else
 
     echo "Copying to $cur__share/$CMAKE_DIRNAME"
     cp -r $CMAKE_FOLDER $cur__share/$CMAKE_DIRNAME
+
+    echo "Checking cmake version (/usr/bin):"
+    OUTPUT="$(/usr/bin/cmake.exe --version)"
+    echo "/usr/bin version is: $OUTPUT"
+
+    echo "Checking cmake version (copied):"
+    strace $cur__bin/cmake.exe
 fi

@@ -6,7 +6,8 @@
   "esy": {
     "build": [
         ["bash", "-c",  "#{os == 'windows' ? './build-windows.sh' : './build.sh'}"],
-        ["ls", "-a", "#{self.bin}"]
+        ["ls", "-a", "#{self.bin}"],
+        ["cmake", "--version"]
     ],
     "buildsInSource": "_build"
   },
